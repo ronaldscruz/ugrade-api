@@ -17,9 +17,15 @@ class Server {
   async connectToDatabase() {
     const { host, name, user, password, port } = dbSetup;
 
-    const connectionUrl = `mongodb://${user}:${password}@${host}:${port}/${name}`;
+    const connectionUrl = `mongodb://${host}:${port}/${name};`
 
-    await mongoose.connect(connectionUrl, { useNewUrlParser: true });
+    await mongoose.connect(connectionUrl, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      authSource: "admin",
+      user: user,
+      pass: password
+    });
   }
 
   setupMiddlewares() {
@@ -37,6 +43,7 @@ class Server {
       await this.connectToDatabase();
       this.setupMiddlewares();
       this.registerRoutes();
+      this.app.listen(this.port);
       console.log("[Server] Running on port:", this.port)
     } catch(err) {
       console.error("[Server] Failed to start.", err)

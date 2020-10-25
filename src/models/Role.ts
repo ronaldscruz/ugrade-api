@@ -1,7 +1,9 @@
 import mongoose from 'mongoose';
 
-const roleSchema = new mongoose.Schema({
-  title: String,
+const Schema = mongoose.Schema;
+
+const roleSchema = new Schema({
+  title: Schema.Types.String,
 });
 
 export default mongoose.model('role', roleSchema);

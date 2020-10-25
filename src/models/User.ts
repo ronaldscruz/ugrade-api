@@ -1,8 +1,11 @@
 import mongoose from 'mongoose';
 
-const userSchema = new mongoose.Schema({
-  email: String,
-  password: String,
+const Schema = mongoose.Schema;
+
+const userSchema = new Schema({
+  email: Schema.Types.String,
+  password: Schema.Types.String,
+  roles: [{ type: Schema.Types.ObjectId, ref: 'role' }]
 });
 
 export default mongoose.model('user', userSchema);
