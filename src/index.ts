@@ -1,6 +1,6 @@
-import dotenv from 'dotenv';
-import Server from './server';
-import routes from './routes';
+import dotenv from "dotenv";
+import Server from "./server";
+import routes from "./routes";
 
 dotenv.config({
   path: `${__dirname}/../.env.${process.env.NODE_ENV}`,
