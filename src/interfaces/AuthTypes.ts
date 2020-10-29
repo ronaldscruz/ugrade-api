@@ -1,13 +1,13 @@
 export interface SignInPayload {
-  email: string;
-  password: string;
+	email: string;
+	password: string;
 }
 
 export interface ForgotPasswordPayload {
-  email: string;
+	email: string;
 }
 
 export interface ChangePasswordPayload {
-  email: string;
-  pwdChangingToken: string;
+	email: string;
+	pwdChangingToken: string;
 }

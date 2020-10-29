@@ -1,8 +1,9 @@
 export interface Role {
-    _id: string;
-    title: string;
+	_id: string;
+	title: string;
 }
 
 export interface CreateRolePayload {
-    title: string;
+	title: string;
+	code?: string;
 }
